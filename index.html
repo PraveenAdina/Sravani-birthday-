@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Birthday ✨</title>
+<meta name="description" content="A starry sky birthday experience.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     APP ROOT
+     ============================================================ -->
+<div id="app">
+
+  <!-- Ambient starfield / nebula / shooting stars / fireworks canvas.
+       One canvas is reused across scenes for performance. -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================
+       SCENE 1 — OPENING
+       ========================================================== -->
+  <section id="scene-opening" class="scene is-active" aria-label="Opening">
+    <div class="opening-copy">
+      <p class="reveal-line" data-delay="0">Look up&hellip;</p>
+      <p class="reveal-line" data-delay="1">Tonight, the whole universe is celebrating you.</p>
+      <h1 class="reveal-line reveal-heading" data-delay="2">
+        Happy Birthday, <span class="sister-name">Sister&rsquo;s Name</span> <span aria-hidden="true">✨</span>
+      </h1>
+      <button id="enter-btn" class="btn-enter reveal-line" data-delay="3" type="button">
+        Enter the Universe <span aria-hidden="true">🌌</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SCENE 2 &amp; 3 — INTERACTIVE SKY + MEMORY STARS
+       ========================================================== -->
+  <section id="scene-sky" class="scene" aria-label="Starry sky" hidden>
+
+    <div id="progress-indicator" class="glass-pill" aria-live="polite">
+      <span id="progress-count">0</span> / <span id="progress-total">10</span> memories discovered
+    </div>
+
+    <p id="sky-hint" class="sky-hint">Tap a glowing star to open a memory</p>
+
+    <!-- Real, keyboard-focusable buttons for each memory star.
+         Positioned absolutely by script.js. Kept as DOM elements
+         (not canvas) so they stay accessible and easy to hit-test. -->
+    <div id="memory-stars-layer" aria-label="Memory stars"></div>
+
+    <!-- SVG overlay used to draw the glowing constellation lines -->
+    <svg id="constellation-svg" aria-hidden="true"></svg>
+
+    <div id="constellation-message" class="center-message" hidden></div>
+  </section>
+
+  <!-- ==========================================================
+       SCENE 5 — MAKE A WISH
+       ========================================================== -->
+  <section id="scene-wish" class="scene" aria-label="Make a wish" hidden>
+    <p class="wish-text">Make a wish&hellip; <span aria-hidden="true">✨</span></p>
+
+    <button id="candle-btn" class="candle-button" type="button" aria-label="Blow out the candle and make a wish">
+      <svg class="candle-svg" viewBox="0 0 120 220" aria-hidden="true">
+        <rect x="45" y="90" width="30" height="110" rx="6" class="candle-body"/>
+        <rect x="45" y="90" width="30" height="14" class="candle-stripe"/>
+        <rect x="45" y="118" width="30" height="14" class="candle-stripe"/>
+        <rect x="45" y="146" width="30" height="14" class="candle-stripe"/>
+        <line x1="60" y1="90" x2="60" y2="70" class="wick"/>
+        <ellipse id="flame" cx="60" cy="50" rx="14" ry="24" class="flame"/>
+        <ellipse id="flame-inner" cx="60" cy="56" rx="7" ry="13" class="flame-inner"/>
+      </svg>
+    </button>
+    <p class="wish-sub">Tap the flame</p>
+  </section>
+
+  <!-- ==========================================================
+       SCENE 6 — FINAL MESSAGE
+       ========================================================== -->
+  <section id="scene-final" class="scene" aria-label="Birthday message" hidden>
+    <div class="final-copy">
+      <p class="reveal-line" data-delay="0">
+        Happy Birthday, <span class="sister-name">Sister&rsquo;s Name</span> <span aria-hidden="true">❤️</span>
+      </p>
+      <p class="reveal-line" data-delay="1">
+        No matter how big this universe is,<br>I&rsquo;m incredibly lucky that you&rsquo;re part of mine.
+      </p>
+      <p class="reveal-line" data-delay="2">Keep shining. Always. <span aria-hidden="true">✨</span></p>
+      <p class="reveal-line signature" data-delay="3">
+        With love,<br><span class="your-name">Your Name</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       MEMORY MODAL
+       ========================================================== -->
+  <div id="memory-modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close memory">✕</button>
+      <h2 id="modal-title"></h2>
+      <div class="modal-image-wrap">
+        <img id="modal-image" alt="">
+      </div>
+      <p id="modal-message"></p>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       MUSIC CONTROLS
+       ========================================================== -->
+  <div id="music-controls" class="glass-pill music-controls" hidden>
+    <button id="music-toggle" type="button" aria-label="Play music" aria-pressed="false">
+      <span id="music-icon" aria-hidden="true">♪</span>
+    </button>
+    <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Music volume">
+  </div>
+
+  <audio id="bg-audio" loop preload="none">
+    <source src="assets/music/birthday.mp3" type="audio/mpeg">
+  </audio>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
