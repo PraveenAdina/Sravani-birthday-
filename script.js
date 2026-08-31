@@ -14,8 +14,13 @@
    ============================================================= */
 
 const CONFIG = {
+<<<<<<< HEAD
   sisterName: "Sravani",       // shown on the opening + final scene
   yourName: "Praveen",              // shown in the closing signature
+=======
+  sisterName: "Sister's Name",       // shown on the opening + final scene
+  yourName: "Your Name",              // shown in the closing signature
+>>>>>>> 96c13ad626c74e0edec094975f891a5bcbe68c1f
   musicEnabled: true,                 // set false to hide music controls entirely
   musicSrc: "assets/music/birthday.mp3",
   constellationShape: "heart",        // "heart" is built in; see buildHeartPositions() to customize
@@ -27,6 +32,7 @@ const CONFIG = {
  * Feel free to add/remove entries (aim for 8–12 total).
  */
 const MEMORIES = [
+<<<<<<< HEAD
   { title: "💕",              image: "assets/photos/memory1.jpg",  message: "" },
   { title: "😂",              image: "assets/photos/memory2.jpg",  message: "" },
   { title: "✨", image: "assets/photos/memory3.jpg",  message: "" },
@@ -37,6 +43,18 @@ const MEMORIES = [
   { title: "🎶",           image: "assets/photos/memory8.jpg",  message: "" },
   { title: "📸",           image: "assets/photos/memory9.jpg",  message: "" },
   { title: "✨",                       image: "assets/photos/memory10.jpg", message: "" },
+=======
+  { title: "Our Childhood 💕",              image: "assets/photos/memory1.jpg",  message: "Those little moments became some of my favorite memories." },
+  { title: "That Crazy Day 😂",              image: "assets/photos/memory2.jpg",  message: "I still laugh whenever I remember this." },
+  { title: "One of My Favorite Memories ✨", image: "assets/photos/memory3.jpg",  message: "I'll always be grateful that I got to experience this with you." },
+  { title: "The Trip We Never Forgot 🚗",    image: "assets/photos/memory4.jpg",  message: "Replace this with a memory only the two of you would understand." },
+  { title: "Late Night Talks 🌙",            image: "assets/photos/memory5.jpg",  message: "Some of our best conversations happened long after midnight." },
+  { title: "The Silly Nickname 🤭",          image: "assets/photos/memory6.jpg",  message: "You know exactly which one I mean." },
+  { title: "When You Were There For Me 🤍",  image: "assets/photos/memory7.jpg",  message: "I don't think I ever properly thanked you for that." },
+  { title: "Our Favorite Song 🎶",           image: "assets/photos/memory8.jpg",  message: "It still comes on at the most random times." },
+  { title: "The Photo We Took 📸",           image: "assets/photos/memory9.jpg",  message: "A tiny moment that means more than you know." },
+  { title: "Today ✨",                       image: "assets/photos/memory10.jpg", message: "And here's to every memory still waiting to happen." },
+>>>>>>> 96c13ad626c74e0edec094975f891a5bcbe68c1f
 ];
 
 /* =============================================================
